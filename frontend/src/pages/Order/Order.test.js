@@ -64,6 +64,7 @@ describe('Test Order', () => {
     //Assert: replace the return true.
     await waitFor(() => {
       return true;
+      //expect(screen.getAllByText('Delivery Fee: $5.00')).toHaveLength(1);
     });
   });
 });
