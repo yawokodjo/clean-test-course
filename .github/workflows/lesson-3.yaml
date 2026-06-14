@@ -28,6 +28,6 @@ jobs:
       - uses: actions/checkout@v4
       - run: npm install
       - name: Run funtional tests
-        run: npm test -- --coverage watchAll=false
+        run: npm test -- --coverage --watchAll=false
 
       
