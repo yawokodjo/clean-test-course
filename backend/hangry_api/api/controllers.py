@@ -1,5 +1,8 @@
+from typing import Any
+
 class Delivery():
-  def calculate(order,distance):
+  @staticmethod
+  def calculate(order: list[Any], distance: float) -> float:
     items = 0
     for item in order:
       items += item.quantity
@@ -11,20 +14,23 @@ class Delivery():
       return 2.5
 
 class Subtotal():
-  def calculate(order):
+  @staticmethod
+  def calculate(order: list[Any]) -> float:
     cost = 0
     for item in order:
       cost += item.quantity * item.item.price
     return cost
 
 class Tax():
-  def calculate(subTotal, deliveryFee):
+  @staticmethod
+  def calculate(subTotal: float, deliveryFee: float) -> float:
     tax = (subTotal + deliveryFee) * 0.0825
     return (0,round(tax,2)) [ round(tax,2) > 0 ]
 
 #Completed Total
 class Total():
-  def calculate(order, deliveryFee):
+  @staticmethod
+  def calculate(order: list[Any], deliveryFee: float) -> float:
     subTotal = Subtotal.calculate(order)
     total = (subTotal + deliveryFee) * 1.0825
     return (0,round(total,2)) [ round(total,2) > 0 ]
